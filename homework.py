@@ -1,4 +1,5 @@
 import datetime as dt
+from typing import Optional
 
 
 class Calculator:
@@ -71,10 +72,10 @@ class Record:
     date_format = '%d.%m.%Y'
     today = dt.datetime.now().date()
 
-    def __init__(self, amount, comment, date=None):
+    def __init__(self, amount, comment, date: Optional[str] = None):
         self.amount = amount
         self.comment = comment
         if date is None:
-            self.date = dt.date.today()
+            self.date = self.today
         else:
             self.date = dt.datetime.strptime(date, self.date_format).date()
