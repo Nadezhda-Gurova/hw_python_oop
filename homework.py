@@ -75,6 +75,6 @@ class Record:
         self.amount = amount
         self.comment = comment
         if date is None:
-            self.date = self.today
+            self.date = dt.date.today()
         else:
             self.date = dt.datetime.strptime(date, self.date_format).date()
