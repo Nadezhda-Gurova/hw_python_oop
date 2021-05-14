@@ -2,7 +2,6 @@ import datetime as dt
 from typing import Optional
 
 
-
 class Calculator:
     today = dt.datetime.now().date()
 
