@@ -52,14 +52,14 @@ class CashCalculator(Calculator):
                          'usd': (self.USD_RATE, 'USD')}
         rate, title = currency_data[currency]
         balance = self.get_remained()
+        if balance == 0:
+            return 'Денег нет, держись'
         if currency != 'rub':
             account_balance = round(balance / rate, 2)
         else:
             account_balance = balance
         if self.limit > account_balance > 0:
             return f'На сегодня осталось {account_balance} {title}'
-        if account_balance == 0:
-            return 'Денег нет, держись'
         if account_balance < 0:
             account_balance_for_minus = abs(account_balance)
             return (f'Денег нет, держись: твой долг - '
